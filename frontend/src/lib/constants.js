@@ -73,3 +73,42 @@ export const STEP_STATUS = {
   em_andamento: { label: 'Em andamento', icon: '◐' },
   concluido: { label: 'Concluído', icon: '●' },
 }
+
+// ---------------------------------------------------------------
+// Tarefas (Fase 3)
+// ---------------------------------------------------------------
+export const TASK_TIPOS = [
+  { value: 'avulsa', label: 'Avulsa' },
+  { value: 'bloco_analitico', label: 'Bloco analítico' },
+  { value: 'onboarding_call', label: 'Onboarding call' },
+  { value: 'check_in', label: 'Check-in' },
+  { value: 'qbr', label: 'QBR' },
+  { value: 'alerta_saude', label: 'Alerta de saúde' },
+]
+
+export const tipoLabel = labelFrom(TASK_TIPOS)
+
+// Classes Tailwind do badge por tipo de tarefa (funciona em dark mode).
+export const TASK_TIPO_CLASSES = {
+  avulsa: 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300',
+  bloco_analitico:
+    'bg-violet-100 text-violet-700 dark:bg-violet-500/15 dark:text-violet-300',
+  onboarding_call:
+    'bg-blue-100 text-blue-700 dark:bg-blue-500/15 dark:text-blue-300',
+  check_in: 'bg-teal-100 text-teal-700 dark:bg-teal-500/15 dark:text-teal-300',
+  qbr: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-500/15 dark:text-indigo-300',
+  alerta_saude: 'bg-red-100 text-red-700 dark:bg-red-500/15 dark:text-red-300',
+}
+
+export const PRIORIDADES = [
+  { value: 'normal', label: 'Normal' },
+  { value: 'urgente', label: 'Urgente' },
+]
+
+// Data local (YYYY-MM-DD) — usada como 'ref' nos endpoints de período
+// para respeitar o fuso do usuário em vez do UTC do servidor.
+export const hojeLocal = () => {
+  const d = new Date()
+  const off = d.getTimezoneOffset() * 60000
+  return new Date(d - off).toISOString().slice(0, 10)
+}
