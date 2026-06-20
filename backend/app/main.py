@@ -14,7 +14,7 @@ from .routers import clientes, tarefas
 app = FastAPI(
     title="GCS API",
     description="Guia do Customer Success — Pagsmile IP",
-    version="0.1.0",
+    version="0.3.0",
 )
 
 # CORS — libera o frontend (Vercel / localhost)
@@ -40,4 +40,4 @@ def health() -> dict:
 
 @app.get("/")
 def root() -> dict:
-    return {"app": "GCS API", "version": "0.1.0", "docs": "/docs"}
+    return {"app": "GCS API", "version": "0.3.0", "docs": "/docs"}
