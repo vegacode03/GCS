@@ -9,7 +9,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from .config import settings
-from .routers import clientes, tarefas
+from .routers import clientes, relatorio, tarefas
 
 app = FastAPI(
     title="GCS API",
@@ -30,6 +30,7 @@ app.add_middleware(
 app.include_router(clientes.router)
 app.include_router(tarefas.router)
 app.include_router(tarefas.dashboard_router)
+app.include_router(relatorio.router)
 
 
 @app.get("/health")
